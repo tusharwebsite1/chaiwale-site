@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Menu - Chaiwale | Order Online</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/image-fallback.js"></script>
+  
+  <style>
+    .menu-header {
+      background: var(--primary);
+      color: white;
+      padding: 50px 0 60px;
+      text-align: center;
+    }
+    
+    .menu-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .category-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 900;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    
+    .category-nav::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .cat-pill {
+      white-space: nowrap;
+      padding: 8px 20px;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    
+    .cat-pill.active, .cat-pill:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .category-section {
+      padding: var(--space-lg) 0 0;
+    }
+    
+    .category-title {
+      font-size: 2rem;
+      margin-bottom: var(--space-md);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-color);
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .menu-header { padding: 40px 0 30px; }
+      .menu-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img">
+        <span style="display:none;">Chaiwale</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="menu.html" style="color: var(--primary);">Menu</a>
+        <a href="../index.html#reviews">Reviews</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      
+      <button class="cart-toggle" onclick="cartSystem.toggleDrawer()">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span>Cart</span>
+        <span class="cart-badge" id="cartBadgeCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="menu-header">
+    <div class="container">
+      <h1>Our Menu</h1>
+      <p>Freshly prepared, hot, and hygienic.</p>
+    </div>
+  </div>
+
+  <!-- Sticky Category Nav -->
+  <div class="category-nav">
+    <div class="container" id="categoryNavContainer" style="display: flex; gap: 10px;">
+      <!-- Populated dynamically -->
+      <div style="color: #888;">Loading categories...</div>
+    </div>
+  </div>
+
+  <!-- Menu Content -->
+  <div class="container" style="padding-bottom: var(--space-xl);">
+    <div id="fullMenuContainer">
+      <!-- Categories and items populated by menu.js -->
+    </div>
+  </div>
+
+  <!-- Cart Drawer Component (Identical structure to index, logic handles paths) -->
+  <div class="cart-overlay" id="cartOverlay" onclick="cartSystem.toggleDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem;">Your Order</h3>
+      <div class="close-cart" onclick="cartSystem.toggleDrawer()"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    
+    <div class="cart-body" id="cartItemsContainer">
+      <!-- Cart items injected here -->
+      <div class="cart-empty">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 3rem; color: #ddd; margin-bottom: 10px;"></i>
+        <p>Your basket is empty!<br>Add some delicious chai and snacks.</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="cart-summary-row cart-total">
+        <span>To Pay</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      
+      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='checkout.html'" style="display: none;">
+        Proceed to Order
+      </button>
+      
+      <!-- Checkout Form removed in favor of dedicated checkout page -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/menu.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaiwale - Sip, Bite, Repeat | Premium Chai Cafe in Rohini</title>
+  <meta name="description" content="Your everyday Chai & Meal spot. Fresh chai, quick bites, office lunch & custom orders at pocket-friendly prices.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Global Image Fallback -->
+  <script src="js/image-fallback.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img">
+        <span style="display:none;">Chaiwale</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pages/menu.html">Menu</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      
+      <button class="cart-toggle" onclick="cartSystem.toggleDrawer()">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span>Cart</span>
+        <span class="cart-badge" id="cartBadgeCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Announcement Carousel -->
+  <div class="announcement-carousel">
+    <div class="carousel-track" id="announcementTrack">
+      <img src="assets/announcements/1.jpg" alt="Monsoon Special Adrak Chai" class="carousel-slide img-slide">
+      <img src="assets/announcements/2.jpg" alt="Combo: Samosa + Chai" class="carousel-slide img-slide">
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <!-- We'll set the background image via inline style so it can be dynamically swapped if needed -->
+  <section class="hero" style="background-image: url('assets/images/hero-bg.jpg');">
+    <div class="container hero-content">
+      <div class="hero-tagline">Premium Coffee & Chai</div>
+      <h1 class="hero-title">Your Everyday Sip &<br>Bite Spot in Rohini</h1>
+      <p class="hero-subtitle">Experience freshly brewed coffee, rich kulhad chai, and delicious snacks right at your doorstep.</p>
+      
+      <div class="hero-ctas">
+        <a href="pages/menu.html" class="btn btn-primary">
+          View Menu <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="https://wa.me/919310110414" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+        </a>
+      </div>
+      
+      <div class="trust-badges">
+        <div class="badge"><i class="fa-solid fa-wallet"></i> Affordable Pricing</div>
+        <div class="badge"><i class="fa-solid fa-bolt"></i> Quick Service</div>
+        <div class="badge"><i class="fa-solid fa-heart"></i> Loved by Locals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Banner -->
+  <div class="offer-banner" onclick="window.location.href='pages/checkout.html'">
+    Enjoy 40% OFF on your first order! <span style="text-decoration: underline; margin-left: 10px;">View All Coupons <i class="fa-solid fa-arrow-right"></i></span>
+  </div>
+
+  <!-- Deals of the Month -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">Deals of the Month</h2>
+        <p class="section-subtitle">Unbeatable combos available only for today.</p>
+      </div>
+      
+      <div class="menu-grid" id="dealsContainer">
+        <!-- Injected dynamically by main.js -->
+        <p style="grid-column: 1/-1; text-align: center; padding: 20px;">Loading deals...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Preview -->
+  <section class="section-padding bg-light">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">Featured from Our Kitchen</h2>
+        <p class="section-subtitle">Handpicked favorites that keep our customers coming back for more.</p>
+      </div>
+      
+      <div class="menu-grid" id="menuPreviewGrid">
+        <!-- Rendered by main.js (pulls first 4 items from json) -->
+        <div style="text-align: center; width: 100%; color: #888;">Loading menu preview...</div>
+      </div>
+      
+      <div class="text-center" style="margin-top: var(--space-lg);">
+        <a href="pages/menu.html" class="btn btn-outline">Explore Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Carousel -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">What Locals Say</h2>
+      </div>
+      
+      <div class="review-slider" id="reviewSlider">
+        <div class="review-slide active">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Best Kulhad chai in Rohini! The samosas are always fresh and crispy. Highly recommended for evening snacks."</p>
+          <div class="review-author">- Rahul S.</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Their office lunch thali is a lifesaver. Feels like home-cooked food. Super fast delivery via WhatsApp!"</p>
+          <div class="review-author">- Priya M.</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Amazing vibe. The bun maska dipped in masala chai is just pure emotion. Will definitely repeat!"</p>
+          <div class="review-author">- Amit K.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div style="margin-bottom: 15px;">
+            <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img" style="height: 50px;">
+            <h3 class="footer-title" style="display:none; margin-bottom: 0;">Chaiwale</h3>
+          </div>
+          <p style="color: #ccc; margin-bottom: 15px;">Sip, Bite, Repeat. Your ultimate destination for authentic flavors and good times.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/chaiwaleofficial/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Reach Us</h3>
+          <div class="footer-text">
+            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> 
+            Upper Ground Floor, Vardhman Grand Plaza, G-31, M2K Rd, Mangalam Place, Sector 03, Rohini, New Delhi, Delhi, 110085
+          </div>
+          <div class="footer-text">
+            <i class="fa-solid fa-phone" style="color: var(--primary);"></i> 
+            <a href="tel:+919310110414">+91 9310110414</a>
+          </div>
+        <div class="footer-text">
+  <i class="fa-brands fa-whatsapp" style="color: orange;"></i> 
+  <a href="https://wa.me/919310112564" target="_blank" style="text-decoration: none; color: inherit;">
+    +91 93101 12564
+  </a>
+</div>
+          
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.702987083063!2d77.11475751240182!3d28.704285188825287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03e33f37dc1b%3A0xeab50d87be56a9a8!2sVardhman%20Grand%20Plaza!5e0!3m2!1sen!2sin!4v1713028392193!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        &copy; 2026 Chaiwale Cafe. All rights reserved.<br>
+        <span style="font-size: 0.8rem;">Inspired by the love of chai.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Floating Actions -->
+  <div class="floating-actions">
+    <a href="pages/menu.html" class="float-order"><i class="fa-solid fa-utensils"></i> Order Here</a>
+    <a href="https://wa.me/919310110414" target="_blank" class="float-wa"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+  </div>
+
+  <!-- Cart Drawer Component (Injected globally/copied to pages) -->
+  <div class="cart-overlay" id="cartOverlay" onclick="cartSystem.toggleDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem;">Your Order</h3>
+      <div class="close-cart" onclick="cartSystem.toggleDrawer()"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    
+    <div class="cart-body" id="cartItemsContainer">
+      <!-- Cart items injected here -->
+      <div class="cart-empty">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 3rem; color: #ddd; margin-bottom: 10px;"></i>
+        <p>Your basket is empty!<br>Add some delicious chai and snacks.</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="cart-summary-row cart-total">
+        <span>To Pay</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      
+      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='pages/checkout.html'" style="display: none;">
+        Proceed to Order
+      </button>
+      
+      <!-- Checkout Form removed in favor of dedicated checkout page -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/cart.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Chaiwale</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/image-fallback.js"></script>
+  
+  <style>
+    .checkout-header {
+      background: var(--primary);
+      color: white;
+      padding: 50px 0 60px;
+      text-align: center;
+    }
+    
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .card {
+      background: var(--surface-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: var(--space-md);
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+      color: var(--primary);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    /* Summary Table */
+    .summary-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .summary-item-header {
+      font-weight: bold;
+      color: var(--text-muted);
+      border-top: none;
+    }
+
+    .summary-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .remove-btn {
+      color: #e74c3c;
+      background: rgba(231, 76, 60, 0.1);
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s;
+    }
+    .remove-btn:hover {
+      background: #e74c3c;
+      color: white;
+    }
+
+    /* Totals */
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    .totals-row.discount { color: var(--success); }
+    .totals-row.final {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      border-top: 2px solid var(--border-color);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    /* Coupon */
+    .coupon-box {
+      display: flex;
+      gap: 10px;
+      margin-top: var(--space-sm);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+    }
+    .modal-content img {
+      max-width: 200px;
+      margin: 0 auto 20px;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+      .summary-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px 0;
+      }
+      .summary-item > div::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+        color: var(--text-muted);
+        display: inline-block;
+        width: 80px;
+      }
+      .summary-item-header { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img">
+        <span style="display:none;">Chaiwale</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="../index.html#reviews">Reviews</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      
+      <button class="cart-toggle" onclick="window.location.href='checkout.html'">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span>Cart</span>
+        <span class="cart-badge" id="cartBadgeCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="checkout-header">
+    <div class="container">
+      <h1>Complete Your Order</h1>
+      <p>Review items, apply offers, and select delivery.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="checkout-grid">
+      
+      <!-- Left Column: Summary & Coupon -->
+      <div>
+        <div class="card">
+          <h2 class="card-title"><i class="fa-solid fa-receipt"></i> Order Summary</h2>
+          
+          <div id="checkoutItemsContainer">
+            <!-- Items injected here -->
+            <div class="text-center" style="padding: 20px;">Loading your cart...</div>
+          </div>
+          
+          <!-- Coupon Box -->
+          <div style="margin-top: var(--space-md); border-top: 1px solid var(--border-color); padding-top: var(--space-sm);">
+            <label style="font-weight: 600;">Have a Coupon?</label>
+            <div class="coupon-box">
+              <input type="text" id="couponCode" class="form-control" placeholder="Enter promo code">
+              <button class="btn btn-outline" id="applyCouponBtn">Apply</button>
+            </div>
+            <div id="couponMessage" style="margin-top: 8px; font-size: 0.9rem;"></div>
+            <a href="#" id="viewCouponsLink" style="display:inline-block; margin-top: 10px; font-size: 0.85rem; color: var(--primary); text-decoration: underline;">View All Coupons</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Details & Payment -->
+      <div>
+        <div class="card">
+          <h2 class="card-title"><i class="fa-solid fa-truck"></i> Delivery Details</h2>
+          
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" id="custName" class="form-control" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" id="custPhone" class="form-control" placeholder="+91 99999 99999">
+          </div>
+          
+          <div class="form-group">
+            <label>Address / Table No. *</label>
+            <input type="text" id="custAddress" class="form-control" placeholder="Complete address" style="margin-bottom: 8px;">
+            <div style="display:flex; gap: 8px; align-items: center;">
+              <input type="text" id="custGPS" class="form-control" placeholder="GPS Location Link" style="flex:1;" readonly>
+              <button class="btn btn-secondary" id="getLocationBtn" style="padding: 10px; background: var(--border-color); border-radius: var(--radius-sm);" title="Get my location">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
+            </div>
+            <div id="locationMessage" style="margin-top: 8px; font-size: 0.9rem; color: var(--text-muted);"></div>
+          </div>
+
+          <!-- Porter Booking Options (Hidden by default) -->
+          <div id="porterOptions" style="display: none; background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #ffeeba;">
+            <p style="font-weight:600; margin-bottom:10px; color: #856404;"><i class="fa-solid fa-motorcycle"></i> You are more than 2km away !</p>
+            <p style="font-size: 0.9rem; color: #856404; margin-bottom: 10px;">Do you want Porter delivery? (Charges apply)</p>
+            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+              <label><input type="radio" name="wantPorter" value="yes"> Yes</label>
+              <label><input type="radio" name="wantPorter" value="no" checked> No</label>
+            </div>
+            
+            <div id="porterBookerOptions" style="display: none;">
+              <p style="font-size: 0.9rem; color: #856404; margin-bottom: 10px;">Who will book Porter?</p>
+              <div style="display: flex; gap: 10px;">
+                <label><input type="radio" name="porterBooker" value="user" checked> I will book</label><br>
+                <label><input type="radio" name="porterBooker" value="owner"> Restaurant will book</label>
+              </div>
+            </div>
+            
+            <div id="porterNoOptions" style="display: block;">
+               <p style="font-size: 0.95rem; color: #dc3545; font-weight: 600; margin-top:5px;"><i class="fa-solid fa-circle-exclamation"></i> Delivery not available beyond 2km.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Special Instructions</label>
+            <input type="text" id="custNote" class="form-control" placeholder="Less sugar, extra spicy, etc.">
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title"><i class="fa-solid fa-wallet"></i> Payment Total</h2>
+          <div class="totals-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">₹0</span>
+          </div>
+          <div class="totals-row discount">
+            <span>Discount</span>
+            <span id="summaryDiscount">- ₹0</span>
+          </div>
+          <div class="totals-row final">
+            <span>Total to Pay</span>
+            <span id="summaryTotal">₹0</span>
+          </div>
+          
+          <button class="btn btn-primary btn-block" id="placeOrderBtn" style="margin-top: var(--space-md); font-size: 1.1rem; padding: 15px;">
+            Place Order
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <!-- 1. Payment Method Modal -->
+  <div class="modal-overlay" id="paymentMethodModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Choose Payment Method</h2>
+      <button class="btn btn-primary btn-block" id="payNowBtn"><i class="fa-solid fa-qrcode"></i> Pay Now (UPI)</button>
+      <button class="btn btn-outline btn-block" id="payCodBtn" style="margin-top: 15px;"><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery</button>
+      <button class="btn btn-block" onclick="document.getElementById('paymentMethodModal').style.display='none'" style="margin-top: 15px; background: transparent; color: var(--text-muted); padding: 5px;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- 2. QR Code Modal -->
+  <div class="modal-overlay" id="qrModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Scan to Pay</h2>
+      
+      <div id="qrImageContainer">
+        <!-- The QR image and UPI details will be shown here -->
+        <img src="../assets/qr.png" alt="Payment QR" id="qrImage" style="margin: 0 auto 15px; max-width: 250px; border-radius: 8px; border: 1px solid var(--border-color);">
+        
+        <div id="upiDetails" style="padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid var(--border-color);">
+          <p style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <span>UPI ID: <strong style="color: var(--primary);">Chaiwale@ptyes</strong></span>
+            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;" onclick="navigator.clipboard.writeText('Chaiwale@ptyes'); const btn=this; const orig=btn.innerHTML; btn.innerHTML='<i class=\'fa-solid fa-check\'></i> Copied!'; setTimeout(() => btn.innerHTML=orig, 2000);" title="Copy UPI ID">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </p>
+          <p style="font-size: 0.95rem; margin-top: 5px;">Please pay <strong style="color: var(--primary); font-size: 1.1rem;">₹<span id="qrTotalSpan">0</span></strong> to the above UPI ID.</p>
+        </div>
+      </div>
+      
+      <p style="margin: 20px 0; font-weight: 600; color: #e67e22;">Have you paid the amount?</p>
+      
+      <div style="display: flex; gap: 15px;">
+        <button class="btn btn-primary" style="flex: 1;" id="confirmPaymentYes">Yes, I have paid</button>
+        <button class="btn btn-outline" style="flex: 1;" id="confirmPaymentNo">No</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 3. Confirm Share Screenshot Modal (Step 2) -->
+  <div class="modal-overlay" id="step2WaModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Action Required</h2>
+      <p style="margin-bottom: 20px;">Have you shared the payment screenshot?</p>
+      <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+        <button class="btn btn-primary" style="flex: 1;" id="step2YesBtn">Yes</button>
+        <button class="btn btn-outline" style="flex: 1;" id="step2NoBtn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. WhatsApp Share / Switch to COD Modal -->
+  <div class="modal-overlay" id="waShareModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Action Required</h2>
+      <button class="btn btn-whatsapp btn-block" id="shareWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Screenshot</button>
+      <button class="btn btn-outline btn-block" id="switchCodBtn" style="margin-top: 15px;">Switch to COD</button>
+      <button class="btn btn-block" onclick="document.getElementById('waShareModal').style.display='none'" style="margin-top: 15px; background: transparent; color: var(--text-muted); padding: 5px;">Back</button>
+    </div>
+  </div>
+
+  <!-- 4b. Pay Now vs COD Modal (Fallback for No Payment) -->
+  <div class="modal-overlay" id="payNowOrCodModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Complete Your Order</h2>
+      <p style="margin-bottom: 20px;">Do you want to Pay Now or choose Cash on Delivery?</p>
+      <button class="btn btn-primary btn-block" id="reopenPayNowBtn">Pay Now</button>
+      <button class="btn btn-outline btn-block" id="chooseCodBtn" style="margin-top: 15px;">Cash on Delivery</button>
+      <button class="btn btn-block" onclick="document.getElementById('payNowOrCodModal').style.display='none'" style="margin-top: 15px; background: transparent; color: var(--text-muted); padding: 5px;">Back</button>
+    </div>
+  </div>
+
+  <!-- 5. Order Confirmed Modal -->
+  <div class="modal-overlay" id="orderConfirmedModal">
+    <div class="modal-content">
+      <h2 style="color: var(--success); margin-bottom: 15px;"><i class="fa-solid fa-circle-check"></i> Order Placed!</h2>
+      <p style="margin-bottom: 10px;">Payment under verification.</p>
+      <p>Please call the restaurant to confirm your order.</p>
+      <button class="btn btn-primary btn-block" onclick="window.location.href='../index.html'" style="margin-top: 20px;">Return Home</button>
+    </div>
+  </div>
+
+  <!-- 6. View All Coupons Modal -->
+  <div class="modal-overlay" id="couponsModal">
+    <div class="modal-content" style="text-align: left;">
+      <h2 style="margin-bottom: 20px;">Available Coupons</h2>
+      <div id="couponsListContainer"></div>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; text-align: center;">*Terms &amp; Conditions Applied</p>
+      <button class="btn btn-block" onclick="document.getElementById('couponsModal').style.display='none'" style="margin-top: 15px; background: transparent; color: var(--text-muted); padding: 5px;">Close</button>
+    </div>
+  </div>
+
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/checkout.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+{
+  "Tea": [
+    {
+      "id": "green-tea",
+      "name": "Green Tea",
+      "price": 30,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "tea",
+      "name": "Tea",
+      "price": 15,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chai-wale-special-milk-tea",
+      "name": "Chai Wale Special Milk Tea",
+      "price": 30,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "lemon-tea",
+      "name": "Lemon Tea",
+      "price": 20,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "black-coffee",
+      "name": "Black Coffee",
+      "price": 20,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Breakfast": [
+    {
+      "id": "aalu-paratha",
+      "name": "Aalu Paratha",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "gobi-paratha",
+      "name": "Gobi Paratha",
+      "price": 50,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "paneer-paratha",
+      "name": "Paneer Paratha",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "pyaz-paratha",
+      "name": "Pyaz Paratha",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "egg-paratha",
+      "name": "Egg Paratha",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "aalu-puri",
+      "name": "Aalu Puri",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chhole-bhature",
+      "name": "Chhole Bhature",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Shake/Drinks": [
+    {
+      "id": "virgin-mojito",
+      "name": "Virgin Mojito",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "mango-shake",
+      "name": "Mango Shake",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "strawberry-shake",
+      "name": "Strawberry Shake",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "banana-shake",
+      "name": "Banana Shake",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "oreo-shake",
+      "name": "Oreo Shake",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "cold-coffee",
+      "name": "Cold Coffee",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "sweet-lassi",
+      "name": "Sweet Lassi",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "salt-lassi",
+      "name": "Salt Lassi",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "sikanji",
+      "name": "Sikanji",
+      "price": 50,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "jaljeera",
+      "name": "Jaljeera",
+      "price": 50,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Lunch": [
+    {
+      "id": "shahi-paneer-chawal-half",
+      "name": "Shahi Paneer Chawal (Half)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "matar-paneer-chawal-half",
+      "name": "Matar Paneer Chawal (Half)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "yellow-dal-chawal-half",
+      "name": "Yellow Dal Chawal (Half)",
+      "price": 50,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "kadhi-chawal-half",
+      "name": "Kadhi Chawal (Half)",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "rajma-chawal-half",
+      "name": "Rajma Chawal (Half)",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chhole-chawal-half",
+      "name": "Chhole Chawal (Half)",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "shahi-paneer-chawal-full",
+      "name": "Shahi Paneer Chawal (Full)",
+      "price": 120,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "matar-paneer-chawal-full",
+      "name": "Matar Paneer Chawal (Full)",
+      "price": 120,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "yellow-dal-chawal-full",
+      "name": "Yellow Dal Chawal (Full)",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "kadhi-chawal-full",
+      "name": "Kadhi Chawal (Full)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "rajma-chawal-full",
+      "name": "Rajma Chawal (Full)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chhole-chawal-full",
+      "name": "Chhole Chawal (Full)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Snacks": [
+    {
+      "id": "samosa",
+      "name": "Samosa",
+      "price": 20,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "bread-pakoda",
+      "name": "Bread Pakoda",
+      "price": 20,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "paneer-bread-pakoda",
+      "name": "Paneer Bread Pakoda",
+      "price": 30,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "bread-roll",
+      "name": "Bread Roll",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "spring-roll",
+      "name": "Spring Roll",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "paneer-pakoda",
+      "name": "Paneer Pakoda",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "mix-pakoda",
+      "name": "Mix Pakoda",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Maggie": [
+    {
+      "id": "veg-maggie",
+      "name": "Veg Maggie",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "butter-maggie",
+      "name": "Butter Maggie",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "butter-cheese-maggie",
+      "name": "Butter Cheese Maggie",
+      "price": 90,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "egg-maggie",
+      "name": "Egg Maggie",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    }
+  ],
+  "Egg Items": [
+    {
+      "id": "bread-omelette",
+      "name": "Bread Omelette",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "bread-omelette-butter",
+      "name": "Bread Omelette Butter",
+      "price": 90,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "egg-bhurji-4-egg",
+      "name": "Egg Bhurji (4 Egg)",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "omelette",
+      "name": "Omelette",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "boiled-egg",
+      "name": "Boiled Egg",
+      "price": 15,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    }
+  ],
+  "Sandwich": [
+    {
+      "id": "veg-sandwich",
+      "name": "Veg Sandwich",
+      "price": 45,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "garlic-veg-cheese-sandwich",
+      "name": "Garlic Veg Cheese Sandwich",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "garlic-paneer-cheese-sandwich",
+      "name": "Garlic Paneer Cheese Sandwich",
+      "price": 90,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "peanut-butter-sandwich",
+      "name": "Peanut Butter Sandwich",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "butter-toast",
+      "name": "Butter Toast",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "bun-maska",
+      "name": "Bun Maska",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    }
+  ],
+  "Chinese": [
+    {
+      "id": "veg-noodles-half",
+      "name": "Veg Noodles (Half)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "singapuri-noodles-half",
+      "name": "Singapuri Noodles  (Half)",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chilli-garlic-noodles-half",
+      "name": "Chilli Garlic Noodles  (Half)",
+      "price": 90,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "fried-rice-half",
+      "name": "Fried Rice  (Half)",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "egg-fried-rice-half",
+      "name": "Egg Fried Rice  (Half)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "veg-noodles-full",
+      "name": "Veg Noodles (Full)",
+      "price": 120,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "singapuri-noodles-full",
+      "name": "Singapuri Noodles  (Full)",
+      "price": 150,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chilli-garlic-noodles-full",
+      "name": "Chilli Garlic Noodles  (Full)",
+      "price": 170,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "fried-rice-full",
+      "name": "Fried Rice  (Full)",
+      "price": 110,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "egg-fried-rice-full",
+      "name": "Egg Fried Rice  (Full)",
+      "price": 130,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    }
+  ],
+  "Momos": [
+    {
+      "id": "veg-steam-momos-half",
+      "name": "Veg Steam Momos  (Half)",
+      "price": 40,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "veg-fried-momos-half",
+      "name": "Veg Fried Momos  (Half)",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "veg-gravy-momos-half",
+      "name": "Veg Gravy Momos  (Half)",
+      "price": 70,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chicken-steam-momos-half",
+      "name": "Chicken Steam Momos  (Half)",
+      "price": 60,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "chicken-fried-momos-half",
+      "name": "Chicken Fried Momos  (Half)",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "chicken-gravy-momos-half",
+      "name": "Chicken Gravy Momos  (Half)",
+      "price": 90,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "veg-steam-momos-full",
+      "name": "Veg Steam Momos  (Full)",
+      "price": 80,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "veg-fried-momos-full",
+      "name": "Veg Fried Momos  (Full)",
+      "price": 100,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "veg-gravy-momos-full",
+      "name": "Veg Gravy Momos  (Full)",
+      "price": 100,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Veg"
+    },
+    {
+      "id": "chicken-steam-momos-full",
+      "name": "Chicken Steam Momos  (Full)",
+      "price": 100,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "chicken-fried-momos-full",
+      "name": "Chicken Fried Momos  (Full)",
+      "price": 120,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    },
+    {
+      "id": "chicken-gravy-momos-full",
+      "name": "Chicken Gravy Momos  (Full)",
+      "price": 150,
+      "image": "-",
+      "description": "-",
+      "vegnonveg": "Non-Veg"
+    }
+  ],
+  "Thali": [
+    {
+      "id": "veg-thali",
+      "name": "Veg Thali",
+      "price": 120,
+      "image": "-",
+      "description": "3 Sabzi + 4 Roti + Rice + Salad + Achar + Sweet",
+      "vegnonveg": "Veg"
+    }
+  ]
+}
