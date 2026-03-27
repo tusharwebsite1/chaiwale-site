@@ -163,18 +163,24 @@
         <span style="display:none;">Chaiwale</span>
       </a>
       
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="../index.html#reviews">Reviews</a>
-        <a href="../index.html#contact">Contact</a>
+      <div class="nav-links" id="navLinks">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></div>
+        <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
+        <a href="menu.html" onclick="toggleMobileMenu()">Menu</a>
+        <a href="../index.html#reviews" onclick="toggleMobileMenu()">Reviews</a>
+        <a href="../index.html#contact" onclick="toggleMobileMenu()">Contact</a>
       </div>
       
-      <button class="cart-toggle" onclick="window.location.href='checkout.html'">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <span>Cart</span>
-        <span class="cart-badge" id="cartBadgeCount">0</span>
-      </button>
+      <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+        <button class="cart-toggle" onclick="window.location.href='checkout.html'" style="margin: 0;">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-badge" id="cartBadgeCount">0</span>
+        </button>
+        <button class="menu-toggle" onclick="toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 

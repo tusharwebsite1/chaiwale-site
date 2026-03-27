@@ -73,6 +73,7 @@ a {
 }
 
 img {
+  width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
@@ -97,7 +98,7 @@ button {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-sm);
+  padding: 0 16px;
 }
 
 .section-padding {
@@ -209,6 +210,19 @@ button {
   font-weight: 700;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.mobile-menu-close {
+  display: none;
+}
+
 /* -- BUTTONS -- */
 .btn {
   display: inline-flex;
@@ -267,6 +281,7 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   color: white;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -775,8 +790,45 @@ button {
 
 /* -- RESPONSIVE -- */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
   .nav-links {
-    display: none; /* simple burger not implemented for scope, keep it clean */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: white;
+    z-index: 1001;
+    flex-direction: column;
+    padding: 80px 20px 20px;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    align-items: flex-start;
+    display: flex;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mobile-menu-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
   }
   
   .hero {
@@ -789,6 +841,17 @@ button {
   
   .trust-badges {
     justify-content: center;
+  }
+  
+  .grid,
+  .row,
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
   }
   
   .floating-actions {

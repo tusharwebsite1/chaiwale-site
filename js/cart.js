@@ -403,3 +403,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Removed native browser exit confirmation per request
   });
 });
+
+window.toggleMobileMenu = function() {
+  const navLinks = document.getElementById('navLinks');
+  if (navLinks) {
+    navLinks.classList.toggle('active');
+  }
+};
