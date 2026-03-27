@@ -295,8 +295,8 @@ function getUserLocation() {
 // -------------------
 
 function validateForm() {
-  const name = document.getElementById('custName').value.trim();
-  const phone = document.getElementById('custPhone').value.trim();
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
   const address = document.getElementById('custAddress').value.trim();
 
   if (!name || !phone || !address) {
@@ -359,48 +359,32 @@ function shareWhatsAppScreenshot() {
 
 // Generates the order text and opens WhatsApp
 function generateWhatsApp(paymentStatus, prependPaymentText = false, clearCart = true) {
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
   const address = document.getElementById('custAddress').value.trim();
   const gpsLink = document.getElementById('custGPS') ? document.getElementById('custGPS').value.trim() : locationMapLink;
   
-  let msg = ``;
+  let msg = `New Order:\n\n`;
+  msg += `Name: ${name}\n`;
+  msg += `Phone: ${phone}\n\n`;
   
-  if (prependPaymentText) {
-    msg += `Hi, I have paid online. Sharing screenshot.\n\n`;
-  }
-
-  msg += `Order Details:\n`;
+  msg += `Items:\n`;
   cartSystem.items.forEach(item => {
-    msg += `Items: ${item.name} x ${item.qty}\n`;
+    msg += `${item.name} x ${item.qty}\n`;
   });
   
-  if (currentDiscount > 0) {
-    msg += `Total: ₹${finalTotalAmount.toFixed(2)} (Discounted)\n\n`;
-  } else {
-    msg += `Total: ₹${finalTotalAmount.toFixed(2)}\n\n`;
-  }
-
+  msg += `\nTotal: ₹${finalTotalAmount.toFixed(2)}\n\n`;
   msg += `Address: ${address}\n`;
-  if (gpsLink) {
-    msg += `Location: ${gpsLink}\n\n`;
-  } else if (locationMapLink) {
-    msg += `Location: ${locationMapLink}\n\n`;
+  msg += `Location: ${gpsLink || locationMapLink || 'Not provided'}\n\n`;
+
+  if (prependPaymentText) {
+    msg += `Payment: ${paymentStatus}\n(Screenshot Attached)`;
   } else {
-    msg += `\n`;
-  }
-  
-  if (document.getElementById('porterOptions').style.display === 'block') {
-    const booker = document.querySelector('input[name="porterBooker"]:checked').value;
-    if (booker === 'user') {
-      msg += `Delivery Info: User will book Porter.\n\n`;
-    } else {
-      msg += `Delivery Info: Restaurant to book Porter (Charges apply).\n\n`;
-    }
+    msg += `Payment: ${paymentStatus}`;
   }
 
-  msg += `Payment: ${paymentStatus}`;
-
-  const WA_NUMBER = "919310110414"; 
-  const waUrl = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
+  const WHATSAPP_NUMBER = "919310112564"; 
+  const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
   
   if (clearCart) {
     cartSystem.items = [];

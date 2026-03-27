@@ -178,8 +178,8 @@ const cartSystem = {
 
   submitOrder() {
     // Validate
-    const name = document.getElementById('custName')?.value.trim();
-    const phone = document.getElementById('custPhone')?.value.trim();
+    const name = document.getElementById('customerName')?.value.trim();
+    const phone = document.getElementById('customerPhone')?.value.trim();
     const address = document.getElementById('custAddress')?.value.trim();
     const note = document.getElementById('custNote')?.value.trim() || 'None';
 
@@ -194,30 +194,33 @@ const cartSystem = {
     }
 
     // Generate WhatsApp Message
-    let msg = `*New Order - Chaiwale* ☕\n\n`;
-    msg += `*Customer Details:*\n`;
-    msg += `👤 Name: ${name}\n`;
-    msg += `📞 Phone: ${phone}\n`;
-    msg += `📍 Address/Table: ${address}\n\n`;
+    let msg = `New Order:\n\n`;
+    msg += `Name: ${name}\n`;
+    msg += `Phone: ${phone}\n\n`;
     
-    msg += `*Order Items:*\n`;
+    msg += `Items:\n`;
     let subtotal = 0;
     this.items.forEach((item, index) => {
       const lineTotal = item.price * item.qty;
       subtotal += lineTotal;
-      msg += `${index + 1}. ${item.name} × ${item.qty} = ₹${lineTotal}\n`;
+      msg += `${item.name} x ${item.qty}\n`;
     });
     
-    msg += `\n*Subtotal:* ₹${subtotal}\n`;
-    msg += `*Total Amount:* ₹${subtotal}\n\n`;
-    msg += `📝 *Note*: ${note}`;
+    msg += `\nTotal: ₹${subtotal}\n\n`;
+    msg += `Address: ${address}\n`;
+    msg += `Location: Not provided\n\n`;
+    msg += `Payment: Pending / COD`;
+    
+    if (note && note !== 'None') {
+      msg += `\n\nNote: ${note}`;
+    }
 
     // Target WhatsApp Number
-    const WA_NUMBER = "919310110414"; 
+    const WHATSAPP_NUMBER = "919310112564"; 
     
     // Redirect
     const encodedMsg = encodeURIComponent(msg);
-    const waUrl = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodedMsg}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}`;
     
     window.open(waUrl, "_blank");
 
@@ -248,9 +251,9 @@ const cartSystem = {
           </div>
           
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <button class="btn btn-primary" id="exitModalGoMenuBtn" onclick="cartSystem.handleExplore()">Explore Menu</button>
-            <button class="btn btn-outline" onclick="cartSystem.closeExitModal()">Continue with Cart</button>
-            <button class="btn" style="background: #ffebee; border: 1px solid #ffcdd2; color: #dc3545;" onclick="cartSystem.clearAndExit()">Remove Items (Clear Cart)</button>
+            <button class="btn" style="background: #ffebee; border: 1px solid #ffcdd2; color: #dc3545;" onclick="cartSystem.clearAndExit()">Clear Cart</button>
+            <button class="btn btn-outline" id="exitModalGoMenuBtn" onclick="cartSystem.handleExplore()">View Menu</button>
+            <button class="btn btn-primary" onclick="cartSystem.closeExitModal()">Continue</button>
           </div>
         </div>
       `;
@@ -397,9 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('beforeunload', (e) => {
-    if (cartSystem.items.length > 0 && !window.allowExit) {
-      e.preventDefault();
-      e.returnValue = ''; // Trigger native browser exit confirmation
-    }
+    // Removed native browser exit confirmation per request
   });
 });
