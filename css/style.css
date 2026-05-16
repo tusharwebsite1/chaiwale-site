@@ -814,6 +814,19 @@ button {
     right: 0;
   }
 
+  .cart-toggle span:not(.cart-badge) {
+    display: none;
+  }
+
+  .announcement-carousel {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    height: 100%;
+  }
+
   .nav-links a {
     width: 100%;
     padding: 15px 0;
@@ -848,6 +861,18 @@ button {
   .cards {
     display: flex;
     flex-direction: column;
+  }
+
+  .footer-grid {
+    gap: var(--space-md);
+  }
+
+  .footer-text {
+    align-items: flex-start;
+  }
+
+  .footer-text i {
+    margin-top: 5px;
   }
 
   button {

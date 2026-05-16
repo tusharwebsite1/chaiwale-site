@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Based on current file structure:
   // index.html is at root -> data/menu.json
   // pages/menu.html is at pages/ -> ../data/menu.json
-  fetch('../data/menu.json')
+  fetch('data/menu.json')
     .then(res => res.json())
     .then(data => {
       // data is now { "Category 1": [...items], "Category 2": [...items] }
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
           pill.classList.remove('active');
           if (pill.getAttribute('data-target') === currentSectionId) {
             pill.classList.add('active');
-            // scroll nav container to make pill visible
-            navContainer.scrollTo({
+            // scroll parent container to make pill visible
+            navContainer.parentElement.scrollTo({
               left: pill.offsetLeft - 20,
               behavior: 'smooth'
             });

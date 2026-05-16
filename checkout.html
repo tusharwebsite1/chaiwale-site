@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout - Chaiwale</title>
+  <title>Checkout | Secure Ordering in Delhi, Noida, Gurugram - Chaiwale</title>
+  <meta name="description" content="Complete your order at Chaiwale. Securely pay via UPI or choose Cash on Delivery for the best tea and snacks in Delhi NCR, Noida, and Gurugram.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpeg" href="../assets/chaiwale-logo.jpeg?v=2">
+  <link rel="icon" type="image/jpeg" href="assets/chaiwale-logo.jpeg?v=3">
+  <link rel="apple-touch-icon" href="assets/chaiwale-logo.jpeg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <script src="../js/image-fallback.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/image-fallback.js" defer></script>
   
   <style>
     .checkout-header {
@@ -158,21 +160,21 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="../index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img" loading="lazy">
         <span style="display:none;">Chaiwale</span>
       </a>
       
       <div class="nav-links" id="navLinks">
         <div class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></div>
-        <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
-        <a href="menu.html" onclick="toggleMobileMenu()">Menu</a>
-        <a href="../index.html#reviews" onclick="toggleMobileMenu()">Reviews</a>
-        <a href="../index.html#contact" onclick="toggleMobileMenu()">Contact</a>
+        <a href="/" onclick="toggleMobileMenu()">Home</a>
+        <a href="menu" onclick="toggleMobileMenu()">Menu</a>
+        <a href="/#reviews" onclick="toggleMobileMenu()">Reviews</a>
+        <a href="/#contact" onclick="toggleMobileMenu()">Contact</a>
       </div>
       
       <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
-        <button class="cart-toggle" onclick="window.location.href='checkout.html'" style="margin: 0;">
+        <button class="cart-toggle" onclick="window.location.href='checkout'" style="margin: 0;">
           <i class="fa-solid fa-basket-shopping"></i>
           <span>Cart</span>
           <span class="cart-badge" id="cartBadgeCount">0</span>
@@ -375,7 +377,7 @@
       <h2 style="color: var(--success); margin-bottom: 15px;"><i class="fa-solid fa-circle-check"></i> Order Placed!</h2>
       <p style="margin-bottom: 10px;">Payment under verification.</p>
       <p>Please call the restaurant to confirm your order.</p>
-      <button class="btn btn-primary btn-block" onclick="window.location.href='../index.html'" style="margin-top: 20px;">Return Home</button>
+      <button class="btn btn-primary btn-block" onclick="window.location.href='/'" style="margin-top: 20px;">Return Home</button>
     </div>
   </div>
 
@@ -389,7 +391,65 @@
     </div>
   </div>
 
-  <script src="../js/cart.js" defer></script>
-  <script src="../js/checkout.js" defer></script>
+  <!-- Contact & Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div style="margin-bottom: 15px;">
+            <img src="assets/chaiwale-logo.jpeg" alt="Chaiwale Cafe Rohini - Best Tea & Snacks in Delhi" class="logo-img" style="height: 50px;" loading="lazy">
+            <h3 class="footer-title" style="display:none; margin-bottom: 0;">Chaiwale</h3>
+          </div>
+          <p style="color: #ccc; margin-bottom: 15px;">Sip, Bite, Repeat. Your ultimate destination for authentic flavors and good times.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/chaiwaleofficial/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Reach Us</h3>
+          <div class="footer-text">
+            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> 
+            Upper Ground Floor, Vardhman Grand Plaza, G-31, M2K Rd, Mangalam Place, Sector 03, Rohini, New Delhi, Delhi, 110085
+          </div>
+          <div class="footer-text">
+            <i class="fa-solid fa-phone" style="color: var(--primary);"></i> 
+            <a href="tel:+919310112564">+91 9310112564</a>
+          </div>
+          <div class="footer-text">
+            <i class="fa-brands fa-whatsapp" style="color: orange;"></i> 
+            <a href="https://wa.me/919310112564" target="_blank" style="text-decoration: none; color: inherit;">
+              +91 93101 12564
+            </a>
+          </div>
+          
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.702987083063!2d77.11475751240182!3d28.704285188825287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03e33f37dc1b%3A0xeab50d87be56a9a8!2sVardhman%20Grand%20Plaza!5e0!3m2!1sen!2sin!4v1713028392193!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        &copy; 2026 Chaiwale Cafe. All rights reserved.<br>
+        <span style="font-size: 0.8rem;">Inspired by the love of chai.</span><br>
+        <a href="https://brandnestagency.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #ccc; text-decoration: none; font-size: 0.8rem; margin-top: 5px; display: inline-block;">
+          Developed by Brandnest - India's First AI Powered Digital agency
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Floating Actions -->
+  <div class="floating-actions">
+    <a href="menu" class="float-order"><i class="fa-solid fa-utensils"></i> Order Here</a>
+    <a href="https://wa.me/919310112564" target="_blank" class="float-wa"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+  </div>
+
+  <script src="js/cart.js" defer></script>
+  <script src="js/checkout.js" defer></script>
 </body>
 </html>

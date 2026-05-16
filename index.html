@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaiwale - Sip, Bite, Repeat | Premium Chai Cafe in Rohini</title>
-  <meta name="description" content="Your everyday Chai & Meal spot. Fresh chai, quick bites, office lunch & custom orders at pocket-friendly prices.">
+  <title>Chaiwale | Best Chai, Momos & Snacks in Delhi, Noida & Gurugram</title>
+  <meta name="description" content="Chaiwale - Your ultimate destination for authentic Kulhad Chai, Momos, Burgers, Maggie, and North Indian Lunch. Fast delivery across Delhi NCR, Rohini, Noida, and Gurugram.">
+  <meta name="keywords" content="Chai Cafe Delhi, Best Tea Noida, Momos Gurugram, Snacks Delhi NCR, Breakfast Rohini, Lunch Delivery Noida, Maggie Point, Sandwich Cafe, Chinese Food Delhi, Thali Rohini, Chaiwale Cafe">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chaiwale.vercel.app/">
+  <meta property="og:title" content="Chaiwale | Best Chai & Snacks in Delhi NCR">
+  <meta property="og:description" content="Sip, Bite, Repeat. Authentic flavors and quick bites delivered across Delhi, Noida, and Gurugram.">
+  <meta property="og:image" content="https://chaiwale.vercel.app/assets/chaiwale-logo.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://chaiwale.vercel.app/">
+  <meta property="twitter:title" content="Chaiwale | Best Chai & Snacks in Delhi NCR">
+  <meta property="twitter:description" content="Sip, Bite, Repeat. Authentic flavors and quick bites delivered across Delhi, Noida, and Gurugram.">
+  <meta property="twitter:image" content="https://chaiwale.vercel.app/assets/chaiwale-logo.jpeg">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="./assets/chaiwale-logo.jpeg?v=2">
+  <link rel="icon" type="image/jpeg" href="assets/chaiwale-logo.jpeg?v=3">
+  <link rel="apple-touch-icon" href="assets/chaiwale-logo.jpeg">
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,17 +44,17 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img" loading="lazy">
         <span style="display:none;">Chaiwale</span>
       </a>
       
       <div class="nav-links" id="navLinks">
         <div class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></div>
-        <a href="index.html" onclick="toggleMobileMenu()">Home</a>
-        <a href="pages/menu.html" onclick="toggleMobileMenu()">Menu</a>
-        <a href="index.html#reviews" onclick="toggleMobileMenu()">Reviews</a>
-        <a href="index.html#contact" onclick="toggleMobileMenu()">Contact</a>
+        <a href="/" onclick="toggleMobileMenu()">Home</a>
+        <a href="menu" onclick="toggleMobileMenu()">Menu</a>
+        <a href="/#reviews" onclick="toggleMobileMenu()">Reviews</a>
+        <a href="/#contact" onclick="toggleMobileMenu()">Contact</a>
       </div>
       
       <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
@@ -67,11 +83,11 @@
   <section class="hero" style="background-image: url('assets/images/hero-bg.jpg');">
     <div class="container hero-content">
       <div class="hero-tagline">Premium Coffee & Chai</div>
-      <h1 class="hero-title">Your Everyday Sip &<br>Bite Spot in Rohini</h1>
-      <p class="hero-subtitle">Experience freshly brewed coffee, rich kulhad chai, and delicious snacks right at your doorstep.</p>
+      <h1 class="hero-title">Best Chai & Snacks<br>Cafe in Delhi NCR</h1>
+      <p class="hero-subtitle">Enjoy freshly brewed Kulhad Chai, crispy Momos, and delicious snacks. Fast delivery across Delhi, Noida, and Gurugram!</p>
       
       <div class="hero-ctas">
-        <a href="pages/menu.html" class="btn btn-primary">
+        <a href="menu" class="btn btn-primary">
           View Menu <i class="fa-solid fa-arrow-right"></i>
         </a>
         <a href="https://wa.me/919310112564" target="_blank" class="btn btn-whatsapp">
@@ -88,7 +104,7 @@
   </section>
 
   <!-- Offer Banner -->
-  <div class="offer-banner" onclick="window.location.href='pages/checkout.html'">
+  <div class="offer-banner" onclick="window.location.href='checkout'">
     Enjoy 40% OFF on your first order! <span style="text-decoration: underline; margin-left: 10px;">View All Coupons <i class="fa-solid fa-arrow-right"></i></span>
   </div>
 
@@ -121,7 +137,7 @@
       </div>
       
       <div class="text-center" style="margin-top: var(--space-lg);">
-        <a href="pages/menu.html" class="btn btn-outline">Explore Full Menu</a>
+        <a href="menu" class="btn btn-outline">Explore Full Menu</a>
       </div>
     </div>
   </section>
@@ -160,7 +176,7 @@
         
         <div class="footer-col">
           <div style="margin-bottom: 15px;">
-            <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img" style="height: 50px;" loading="lazy">
+            <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Cafe Rohini - Best Tea & Snacks in Delhi" class="logo-img" style="height: 50px;" loading="lazy">
             <h3 class="footer-title" style="display:none; margin-bottom: 0;">Chaiwale</h3>
           </div>
           <p style="color: #ccc; margin-bottom: 15px;">Sip, Bite, Repeat. Your ultimate destination for authentic flavors and good times.</p>
@@ -197,14 +213,17 @@
       
       <div class="footer-bottom">
         &copy; 2026 Chaiwale Cafe. All rights reserved.<br>
-        <span style="font-size: 0.8rem;">Inspired by the love of chai.</span>
+        <span style="font-size: 0.8rem;">Inspired by the love of chai.</span><br>
+        <a href="https://brandnestagency.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #ccc; text-decoration: none; font-size: 0.8rem; margin-top: 5px; display: inline-block;">
+          Developed by Brandnest - India's First AI Powered Digital agency
+        </a>
       </div>
     </div>
   </footer>
 
   <!-- Mobile Floating Actions -->
   <div class="floating-actions">
-    <a href="pages/menu.html" class="float-order"><i class="fa-solid fa-utensils"></i> Order Here</a>
+    <a href="menu" class="float-order"><i class="fa-solid fa-utensils"></i> Order Here</a>
     <a href="https://wa.me/919310112564" target="_blank" class="float-wa"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
   </div>
 
@@ -234,7 +253,7 @@
         <span id="cartTotal">₹0</span>
       </div>
       
-      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='pages/checkout.html'" style="display: none;">
+      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='checkout'" style="display: none;">
         Proceed to Order
       </button>
       

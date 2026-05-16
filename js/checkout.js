@@ -115,7 +115,7 @@ function renderCheckoutSummary() {
       <div class="text-center" style="padding: 30px;">
         <i class="fa-solid fa-basket-shopping" style="font-size: 3rem; color: #ddd; margin-bottom: 10px;"></i>
         <p>Your basket is empty!</p>
-        <a href="menu.html" class="btn btn-primary" style="margin-top: 15px;">Go to Menu</a>
+        <a href="menu" class="btn btn-primary" style="margin-top: 15px;">Go to Menu</a>
       </div>
     `;
     document.getElementById('placeOrderBtn').disabled = true;

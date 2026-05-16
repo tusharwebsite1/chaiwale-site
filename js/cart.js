@@ -282,7 +282,7 @@ const cartSystem = {
     this.updateUI();
     window.allowExit = true;
     
-    const basePath = window.location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
+    const basePath = '/';
     window.location.href = window.pendingExitUrl || basePath;
   },
 
@@ -293,10 +293,10 @@ const cartSystem = {
        document.getElementById('exitModalGoMenuBtn').innerHTML = "View Full Menu";
        document.getElementById('exitModalGoMenuBtn').onclick = () => {
            window.allowExit = true;
-           window.location.href = window.location.pathname.includes('/pages/') ? 'menu.html' : 'pages/menu.html';
+           window.location.href = 'menu';
        };
     } else {
-       const dataUrl = window.location.pathname.includes('/pages/') ? '../data/menu.json' : 'data/menu.json';
+       const dataUrl = 'data/menu.json';
        fetch(dataUrl).then(res => res.json()).then(data => {
            let allItems = [];
            Object.values(data).forEach(arr => allItems = allItems.concat(arr));

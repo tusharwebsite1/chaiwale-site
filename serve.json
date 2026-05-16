@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/menu", "destination": "/menu.html" },
+    { "source": "/checkout", "destination": "/checkout.html" }
+  ]
+}

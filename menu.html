@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Menu - Chaiwale | Order Online</title>
+  <title>Our Menu | Chai, Momos & Snacks in Delhi, Noida, Gurugram - Chaiwale</title>
+  <meta name="description" content="Explore Chaiwale's full menu: Kulhad Chai, Momos, Shakes, Maggie, and Lunch Thali. Delivering fresh flavors across Delhi NCR, Noida, and Gurugram.">
+  <meta name="keywords" content="Chaiwale Menu, Momos Delhi, Tea Menu Noida, Snacks Gurugram, Best Cafe Food NCR, Lunch Thali Delhi">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpeg" href="../assets/chaiwale-logo.jpeg?v=2">
+  <link rel="icon" type="image/jpeg" href="assets/chaiwale-logo.jpeg?v=3">
+  <link rel="apple-touch-icon" href="assets/chaiwale-logo.jpeg">
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
-  <script src="../js/image-fallback.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/image-fallback.js" defer></script>
   
   <style>
     .menu-header {
@@ -35,18 +38,23 @@
       position: sticky;
       top: 70px;
       z-index: 900;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(10px);
-      padding: 15px 0;
       border-bottom: 1px solid var(--border-color);
-      display: flex;
-      gap: 15px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      padding: 10px 0;
     }
     
     .category-nav::-webkit-scrollbar {
       display: none;
+    }
+
+    #categoryNavContainer {
+      display: flex;
+      gap: 10px;
+      padding: 5px 16px;
     }
     
     .cat-pill {
@@ -89,17 +97,17 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="../index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="/assets/chaiwale-logo.jpeg" alt="Chaiwale Logo" class="logo-img" loading="lazy">
         <span style="display:none;">Chaiwale</span>
       </a>
       
       <div class="nav-links" id="navLinks">
         <div class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></div>
-        <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
-        <a href="menu.html" style="color: var(--primary);" onclick="toggleMobileMenu()">Menu</a>
-        <a href="../index.html#reviews" onclick="toggleMobileMenu()">Reviews</a>
-        <a href="../index.html#contact" onclick="toggleMobileMenu()">Contact</a>
+        <a href="/" onclick="toggleMobileMenu()">Home</a>
+        <a href="menu" style="color: var(--primary);" onclick="toggleMobileMenu()">Menu</a>
+        <a href="/#reviews" onclick="toggleMobileMenu()">Reviews</a>
+        <a href="/#contact" onclick="toggleMobileMenu()">Contact</a>
       </div>
       
       <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
@@ -125,7 +133,7 @@
 
   <!-- Sticky Category Nav -->
   <div class="category-nav">
-    <div class="container" id="categoryNavContainer" style="display: flex; gap: 10px;">
+    <div class="container" id="categoryNavContainer">
       <!-- Populated dynamically -->
       <div style="color: #888;">Loading categories...</div>
     </div>
@@ -138,7 +146,59 @@
     </div>
   </div>
 
-  <!-- Cart Drawer Component (Identical structure to index, logic handles paths) -->
+  <!-- Contact & Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div style="margin-bottom: 15px;">
+            <img src="assets/chaiwale-logo.jpeg" alt="Chaiwale Cafe Rohini - Best Tea & Snacks in Delhi" class="logo-img" style="height: 50px;" loading="lazy">
+            <h3 class="footer-title" style="display:none; margin-bottom: 0;">Chaiwale</h3>
+          </div>
+          <p style="color: #ccc; margin-bottom: 15px;">Sip, Bite, Repeat. Your ultimate destination for authentic flavors and good times.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/chaiwaleofficial/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3 class="footer-title">Reach Us</h3>
+          <div class="footer-text">
+            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> 
+            Upper Ground Floor, Vardhman Grand Plaza, G-31, M2K Rd, Mangalam Place, Sector 03, Rohini, New Delhi, Delhi, 110085
+          </div>
+          <div class="footer-text">
+            <i class="fa-solid fa-phone" style="color: var(--primary);"></i> 
+            <a href="tel:+919310112564">+91 9310112564</a>
+          </div>
+          <div class="footer-text">
+            <i class="fa-brands fa-whatsapp" style="color: orange;"></i> 
+            <a href="https://wa.me/919310112564" target="_blank" style="text-decoration: none; color: inherit;">
+              +91 93101 12564
+            </a>
+          </div>
+          
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.702987083063!2d77.11475751240182!3d28.704285188825287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03e33f37dc1b%3A0xeab50d87be56a9a8!2sVardhman%20Grand%20Plaza!5e0!3m2!1sen!2sin!4v1713028392193!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        &copy; 2026 Chaiwale Cafe. All rights reserved.<br>
+        <span style="font-size: 0.8rem;">Inspired by the love of chai.</span><br>
+        <a href="https://brandnestagency.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #ccc; text-decoration: none; font-size: 0.8rem; margin-top: 5px; display: inline-block;">
+          Developed by Brandnest - India's First AI Powered Digital agency
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer Component -->
   <div class="cart-overlay" id="cartOverlay" onclick="cartSystem.toggleDrawer()"></div>
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
@@ -164,7 +224,7 @@
         <span id="cartTotal">₹0</span>
       </div>
       
-      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='checkout.html'" style="display: none;">
+      <button class="btn btn-primary btn-block" id="proceedBtn" onclick="window.location.href='checkout'" style="display: none;">
         Proceed to Order
       </button>
       
@@ -172,8 +232,14 @@
     </div>
   </div>
 
+  <!-- Mobile Floating Actions -->
+  <div class="floating-actions">
+    <a href="menu" class="float-order"><i class="fa-solid fa-utensils"></i> Order Here</a>
+    <a href="https://wa.me/919310112564" target="_blank" class="float-wa"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+  </div>
+
   <!-- Scripts -->
-  <script src="../js/cart.js" defer></script>
-  <script src="../js/menu.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/menu.js" defer></script>
 </body>
 </html>
